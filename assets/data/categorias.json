@@ -1,5 +1,5 @@
 {
-    "books": [
+    "categorias": [
         {
             "id": 1,
             "nombre": "Ciencia Ficción",
