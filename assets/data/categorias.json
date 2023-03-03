@@ -1,0 +1,40 @@
+{
+    "books": [
+        {
+            "id": 1,
+            "nombre": "Ciencia Ficción",
+            "imagen": "",
+            "estado": 1
+        },
+        {
+            "id": 2,
+            "nombre": "Clásicos",
+            "imagen": "",
+            "estado": 1
+        },
+        {
+            "id": 3,
+            "nombre": "Histórica",
+            "imagen": "",
+            "estado": 1
+        },
+        {
+            "id": 4,
+            "nombre": "Juvenil",
+            "imagen": "",
+            "estado": 1
+        },
+        {
+            "id": 5,
+            "nombre": "Romance",
+            "imagen": "",
+            "estado": 1
+        },
+        {
+            "id": 6,
+            "nombre": "Terror",
+            "imagen": "",
+            "estado": 1
+        }
+    ]
+}
