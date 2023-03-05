@@ -19,7 +19,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _currentPage = 0;
   List<Widget> pages = [
-    const HomePage(),
+    HomePage(),
     const CartPage(),
     const SuggestPage(),
     const FavoritePage(),

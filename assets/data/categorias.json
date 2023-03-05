@@ -1,40 +1,38 @@
-{
-    "categorias": [
-        {
-            "id": 1,
-            "nombre": "Ciencia Ficción",
-            "imagen": "",
-            "estado": 1
-        },
-        {
-            "id": 2,
-            "nombre": "Clásicos",
-            "imagen": "",
-            "estado": 1
-        },
-        {
-            "id": 3,
-            "nombre": "Histórica",
-            "imagen": "",
-            "estado": 1
-        },
-        {
-            "id": 4,
-            "nombre": "Juvenil",
-            "imagen": "",
-            "estado": 1
-        },
-        {
-            "id": 5,
-            "nombre": "Romance",
-            "imagen": "",
-            "estado": 1
-        },
-        {
-            "id": 6,
-            "nombre": "Terror",
-            "imagen": "",
-            "estado": 1
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "nombre": "Ciencia Ficción",
+        "imagen": "https://i.postimg.cc/0j5x4wGX/categoria-cf.jpg",
+        "estado": 1
+    },
+    {
+        "id": 2,
+        "nombre": "Clásicos",
+        "imagen": "https://i.postimg.cc/zvd5YG0z/categoria-clasic.jpg",
+        "estado": 1
+    },
+    {
+        "id": 3,
+        "nombre": "Histórica",
+        "imagen": "https://i.postimg.cc/66zBvMwk/categoria-historia.jpg",
+        "estado": 1
+    },
+    {
+        "id": 4,
+        "nombre": "Juvenil",
+        "imagen": "https://i.postimg.cc/V6Wm4Rtb/categoria-juvenil.jpg",
+        "estado": 1
+    },
+    {
+        "id": 5,
+        "nombre": "Romance",
+        "imagen": "https://i.postimg.cc/63XBdS8X/categoria-romance.jpg",
+        "estado": 1
+    },
+    {
+        "id": 6,
+        "nombre": "Terror",
+        "imagen": "https://i.postimg.cc/NfMB7Rj5/categoria-terror.jpg",
+        "estado": 1
+    }
+]
