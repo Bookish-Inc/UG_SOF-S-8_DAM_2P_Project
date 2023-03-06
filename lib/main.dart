@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_segundo_parcial_dam/pages/AccountPage.dart';
+import 'package:proyecto_segundo_parcial_dam/pages/BookDetailPage.dart';
 import 'package:proyecto_segundo_parcial_dam/pages/CartPage.dart';
 import 'package:proyecto_segundo_parcial_dam/pages/FavoritePage.dart';
 import 'package:proyecto_segundo_parcial_dam/pages/HomePage.dart';
@@ -22,8 +23,8 @@ class _MyHomePageState extends State<MyHomePage> {
     HomePage(),
     const CartPage(),
     const SuggestPage(),
-    const FavoritePage(),
-    const AccountPage()
+    FavoritePage(),
+    const AccountPage(),
   ];
 
   @override

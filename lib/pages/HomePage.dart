@@ -4,6 +4,7 @@ import '../services/BooksServices.dart';
 
 import '../components/BookCard.dart';
 import '../models/libro.dart';
+import 'BookDetailPage.dart';
 
 class HomePage extends StatefulWidget {
   // const HomePage({Key? key}) : super(key: key);
@@ -93,7 +94,6 @@ class _State extends State<HomePage> {
                           ),
                         ]),
                   ),
-
                   Container(
                     height: 200.0,
                     width: double.infinity,
@@ -104,13 +104,13 @@ class _State extends State<HomePage> {
                       itemBuilder: (context, index) {
                         final Libro book = _books[index];
                         return BookCard(
+                          id: book.id,
                           imageUrl: book.imagen,
                           title: book.titulo,
                         );
                       },
                     ),
                   ),
-
                   const SizedBox(height: 8.0),
                   // Tercera fila con texto 'Recomendaciones' y ListView horizontal de libros
                   Container(
@@ -138,6 +138,7 @@ class _State extends State<HomePage> {
                       itemBuilder: (context, index) {
                         final Categorias categorie = _categories[index];
                         return BookCard(
+                          id: categorie.id,
                           imageUrl: categorie.imagen,
                           title: categorie.nombre,
                         );

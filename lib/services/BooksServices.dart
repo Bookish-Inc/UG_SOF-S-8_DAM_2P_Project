@@ -1,3 +1,4 @@
+import 'package:proyecto_segundo_parcial_dam/models/categorias_libros.dart';
 import 'package:proyecto_segundo_parcial_dam/models/libro.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
@@ -46,5 +47,22 @@ class BookServices {
     }
     print(categories);
     return categories;
+  }
+
+  Future<List<CategoriasLibros>> getBookCategorieFromJson() async {
+    final String jsonString =
+        await rootBundle.loadString('data/categorias_libros.json');
+    final items = jsonDecode(jsonString);
+    // final items = document.findAllElements('libros');
+
+    List<CategoriasLibros> categoriesbooks = [];
+    for (var node in items) {
+      categoriesbooks.add(CategoriasLibros(
+        libro_id: node["libro_id"],
+        categoria_id: node["categoria_id"],
+      ));
+    }
+    print(categoriesbooks);
+    return categoriesbooks;
   }
 }

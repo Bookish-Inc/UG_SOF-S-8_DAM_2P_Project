@@ -1,32 +1,30 @@
-{
-    "categorias_libros": [
-        {
-            "categoria_id": 1,
-            "libro_id": 2
-        },
-        {
-            "categoria_id": 5,
-            "libro_id": 1
-        },
-        {
-            "categoria_id": 3,
-            "libro_id": 6
-        },
-        {
-            "categoria_id": 5,
-            "libro_id": 5
-        },
-        {
-            "categoria_id": 6,
-            "libro_id": 3
-        },
-        {
-            "categoria_id": 4,
-            "libro_id": 5
-        },
-        {
-            "categoria_id": 4,
-            "libro_id": 4
-        }
-    ]
-}
+[
+    {
+        "categoria_id": 1,
+        "libro_id": 2
+    },
+    {
+        "categoria_id": 5,
+        "libro_id": 1
+    },
+    {
+        "categoria_id": 3,
+        "libro_id": 6
+    },
+    {
+        "categoria_id": 5,
+        "libro_id": 5
+    },
+    {
+        "categoria_id": 6,
+        "libro_id": 3
+    },
+    {
+        "categoria_id": 4,
+        "libro_id": 5
+    },
+    {
+        "categoria_id": 4,
+        "libro_id": 4
+    }
+]
