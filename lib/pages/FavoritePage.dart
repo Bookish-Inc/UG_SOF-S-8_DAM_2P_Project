@@ -59,9 +59,6 @@ class _FavoritePageState extends State<FavoritePage> {
             fit: BoxFit.cover,
           ),
         ),
-        height: 200.0,
-        width: double.infinity,
-        color: Colors.indigoAccent,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: _favorites.length,
