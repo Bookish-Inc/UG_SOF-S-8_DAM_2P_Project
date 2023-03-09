@@ -54,7 +54,7 @@ class _State extends State<HomePage> {
           ),
         ),
         child: _books == null
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : ListView(
                 children: [
                   // Primera fila con texto 'Bienvenido'

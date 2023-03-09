@@ -12,6 +12,7 @@ class BookCard extends StatelessWidget {
     required this.imageUrl,
     required this.title,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

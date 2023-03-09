@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_segundo_parcial_dam/components/StarRadioButton.dart';
 import 'package:proyecto_segundo_parcial_dam/models/categorias_libros.dart';
 
 import '../models/categorias.dart';
 import '../models/libro.dart';
+import '../models/usuario_favoritos.dart';
 import '../services/BooksServices.dart';
+import '../services/FavoritosServices.dart';
 
 class BookDetailPage extends StatefulWidget {
   final int id;
@@ -17,10 +20,47 @@ class BookDetailPage extends StatefulWidget {
 class _BookDetailPageState extends State<BookDetailPage> {
   late Libro _book;
   late String _categorie;
+  late bool _isSelected;
+
   @override
   void initState() {
     super.initState();
     _loadBook();
+    //_loadFavorito();
+  }
+
+  void _handleSelection(bool? value) {
+    if (value == false) {
+      _deleteFavorito();
+    } else {
+      _postFavorito();
+    }
+
+    setState(() {
+      _isSelected = value ?? false;
+    });
+  }
+
+  Future<void> _postFavorito() async {
+    final FavoritosServices favsServices = FavoritosServices();
+    await favsServices.postFavoritosToJson(_book.id);
+  }
+
+  Future<void> _deleteFavorito() async {
+    final FavoritosServices favsServices = FavoritosServices();
+    await favsServices.deleteFavoritosFromJson(_book.id);
+  }
+
+  Future<void> _loadFavorito() async {
+    final FavoritosServices favsServices = FavoritosServices();
+    final List<UsuarioFavoritos> favs =
+        await favsServices.getFavoritosFromJson();
+    var isFav = favs.where((e) => e.libro_id == _book.id).toList();
+    bool flag = isFav.isNotEmpty ? true : false;
+
+    setState(() {
+      _isSelected = flag;
+    });
   }
 
   Future<void> _loadBook() async {
@@ -43,9 +83,11 @@ class _BookDetailPageState extends State<BookDetailPage> {
     Libro detailbook =
         books.where((book) => book.id == widget.id).toList().first;
     var categoriasString = categorias.join(';');
+
     setState(() {
       _book = detailbook;
       _categorie = categoriasString;
+      _isSelected = false;
     });
   }
 
@@ -60,16 +102,16 @@ class _BookDetailPageState extends State<BookDetailPage> {
           ),
         ),
         child: _book == null
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : ListView(children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.star),
+                      StarRadioButton(
+                        isSelected: _isSelected,
+                        onSelect: _handleSelection,
                       ),
                     ],
                   ),
