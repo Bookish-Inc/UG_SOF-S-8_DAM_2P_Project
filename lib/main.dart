@@ -23,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
     HomePage(),
     const CartPage(),
     const SuggestPage(),
-    FavoritePage(),
+    const FavoritePage(categoria: 0),
     const AccountPage(),
   ];
 

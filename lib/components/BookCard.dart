@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_segundo_parcial_dam/pages/BookDetailPage.dart';
+import 'package:proyecto_segundo_parcial_dam/pages/FavoritePage.dart';
 
 class BookCard extends StatelessWidget {
   final int id;
   final String imageUrl;
   final String title;
+  final int categoria;
+  final bool isBookshelf;
 
   const BookCard({
     Key? key,
     required this.id,
     required this.imageUrl,
     required this.title,
+    required this.categoria,
+    required this.isBookshelf,
   }) : super(key: key);
 
   @override
@@ -20,7 +25,8 @@ class BookCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => BookDetailPage(id: id),
+            builder: (context) =>
+                isBookshelf ? FavoritePage(categoria: categoria) : BookDetailPage(id: id),
           ),
         );
       },

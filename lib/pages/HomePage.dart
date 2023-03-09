@@ -106,7 +106,9 @@ class _State extends State<HomePage> {
                         return BookCard(
                           id: book.id,
                           imageUrl: book.imagen,
+                          categoria: 0,
                           title: book.titulo,
+                          isBookshelf: false,
                         );
                       },
                     ),
@@ -141,6 +143,8 @@ class _State extends State<HomePage> {
                           id: categorie.id,
                           imageUrl: categorie.imagen,
                           title: categorie.nombre,
+                          categoria: categorie.id,
+                          isBookshelf: true,
                         );
                       },
                     ),
