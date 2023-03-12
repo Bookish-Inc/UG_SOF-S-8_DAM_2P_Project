@@ -26,10 +26,11 @@ class _BookDetailPageState extends State<BookDetailPage> {
   void initState() {
     super.initState();
     _loadBook();
-    //_loadFavorito();
+    _loadFavorito();
   }
 
   void _handleSelection(bool? value) {
+    print(value);
     if (value == false) {
       _deleteFavorito();
     } else {
@@ -97,7 +98,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/fondo.png'),
+            image: AssetImage('assets/images/fondo.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -140,13 +141,11 @@ class _BookDetailPageState extends State<BookDetailPage> {
                     height: 160,
                     child: SingleChildScrollView(
                       child: TextField(
-                        maxLines: 7, // allow for unlimited lines of text
-                        decoration: const InputDecoration.collapsed(
-                          hintText: 'Enter your text here',
-                        ),
+                        maxLines: null, // allow for unlimited lines of text
                         controller: TextEditingController(
                           text: _book.descripcion,
                         ),
+                        enabled: false,
                       ),
                     ),
                   ),
@@ -158,32 +157,36 @@ class _BookDetailPageState extends State<BookDetailPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            padding: const EdgeInsets.all(8.0),
-                            width: 200,
-                            decoration: BoxDecoration(
-                              color: Colors.indigoAccent,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Text(
-                              _book.fechaPublicacion,
-                              style: const TextStyle(
-                                color: Colors.white,
+                          Expanded(
+                            child: Container(
+                              padding: const EdgeInsets.all(8.0),
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.indigoAccent,
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Text(
+                                _book.fechaPublicacion,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
                           const SizedBox(width: 16.0),
-                          Container(
-                            padding: const EdgeInsets.all(8.0),
-                            width: 200,
-                            decoration: BoxDecoration(
-                              color: Colors.indigoAccent,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Text(
-                              _categorie,
-                              style: const TextStyle(
-                                color: Colors.white,
+                          Expanded(
+                            child: Container(
+                              padding: const EdgeInsets.all(8.0),
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.indigoAccent,
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Text(
+                                _categorie,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
@@ -193,32 +196,36 @@ class _BookDetailPageState extends State<BookDetailPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            padding: const EdgeInsets.all(8.0),
-                            width: 200,
-                            decoration: BoxDecoration(
-                              color: Colors.indigoAccent,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Text(
-                              _book.autor,
-                              style: const TextStyle(
-                                color: Colors.white,
+                          Expanded(
+                            child: Container(
+                              padding: const EdgeInsets.all(8.0),
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.indigoAccent,
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Text(
+                                _book.autor,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
                           const SizedBox(width: 16.0),
-                          Container(
-                            padding: const EdgeInsets.all(8.0),
-                            width: 200,
-                            decoration: BoxDecoration(
-                              color: Colors.indigoAccent,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Text(
-                              _book.precio.toString(),
-                              style: const TextStyle(
-                                color: Colors.white,
+                          Expanded(
+                            child: Container(
+                              padding: const EdgeInsets.all(8.0),
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.indigoAccent,
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Text(
+                                _book.precio.toString(),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),

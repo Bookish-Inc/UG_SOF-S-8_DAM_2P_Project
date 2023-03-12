@@ -37,7 +37,6 @@ class _State extends State<HomePage> {
     final BookServices bookServices = BookServices();
     final List<Categorias> categories =
         await bookServices.getCategoriesFromJson();
-
     setState(() {
       _categories = categories;
     });
@@ -49,7 +48,7 @@ class _State extends State<HomePage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/fondo.png'),
+            image: AssetImage('assets/images/fondo.png'),
             fit: BoxFit.cover,
           ),
         ),

@@ -9,15 +9,16 @@ class FavoritosServices {
     final path = directory.path;
     final file = File('$path/favoritos_usuario.json');
     final items = await file.readAsString();
-    final data = jsonDecode(items);
     List<UsuarioFavoritos> favs = [];
-    for (var node in data) {
-      favs.add(UsuarioFavoritos(
-        libro_id: node["libro_id"],
-        usuario_id: node["usuario_id"],
-      ));
+    if (items.isNotEmpty) {
+      final data = jsonDecode(items);
+      for (var node in data) {
+        favs.add(UsuarioFavoritos(
+          libro_id: node["libro_id"],
+          usuario_id: node["usuario_id"],
+        ));
+      }
     }
-    print(favs);
     return favs;
   }
 
@@ -41,7 +42,8 @@ class FavoritosServices {
     final path = directory.path;
     final file = File('$path/favoritos_usuario.json');
     List<UsuarioFavoritos> favoritos = await getFavoritosFromJson();
-    favoritos.remove(UsuarioFavoritos(usuario_id: 1, libro_id: libro));
+    favoritos.removeWhere((favorito) => favorito.libro_id == libro);
+    print(favoritos);
     return file.writeAsString(jsonEncode(favoritos));
   }
 }

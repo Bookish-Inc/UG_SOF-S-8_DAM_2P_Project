@@ -32,7 +32,7 @@ class BookServices {
 
   Future<List<Categorias>> getCategoriesFromJson() async {
     final String jsonString =
-        await rootBundle.loadString('data/categorias.json');
+        await rootBundle.loadString('assets/data/categorias.json');
     final items = jsonDecode(jsonString);
     // final items = document.findAllElements('libros');
 
@@ -51,7 +51,7 @@ class BookServices {
 
   Future<List<CategoriasLibros>> getBookCategorieFromJson() async {
     final String jsonString =
-        await rootBundle.loadString('data/categorias_libros.json');
+        await rootBundle.loadString('assets/data/categorias_libros.json');
     final items = jsonDecode(jsonString);
     // final items = document.findAllElements('libros');
 

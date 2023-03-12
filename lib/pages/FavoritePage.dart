@@ -11,10 +11,7 @@ import '../services/BooksServices.dart';
 class FavoritePage extends StatefulWidget {
   final int categoria;
 
-  const FavoritePage({
-    Key? key,
-    required this.categoria,
-  }) : super(key: key);
+  const FavoritePage({required this.categoria});
   @override
   _FavoritePageState createState() => _FavoritePageState();
 }
@@ -36,7 +33,7 @@ class _FavoritePageState extends State<FavoritePage> {
           await favsServices.getFavoritosFromJson();
       final List<Libro> books = await bookServices.getBooksFromJson();
       if (favs.isNotEmpty) {
-        for (var i = 0; i <= favs.length; i++) {
+        for (var i = 0; i <= favs.length - 1; i++) {
           var book =
               books.where((book) => book.id == favs[i].libro_id).toList();
           favorites_books.add(Libro(
@@ -62,7 +59,7 @@ class _FavoritePageState extends State<FavoritePage> {
       var booksCateg = bookcateg
           .where((book) => book.categoria_id == widget.categoria)
           .toList();
-      for (var i = 0; i <= booksCateg.length; i++) {
+      for (var i = 0; i <= booksCateg.length - 1; i++) {
         var booksNuevos =
             books.where((book) => book.id == booksCateg[i].libro_id).toList();
         favorites_books.add(Libro(
@@ -89,25 +86,50 @@ class _FavoritePageState extends State<FavoritePage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/fondo.png'),
+            image: AssetImage('assets/images/fondo.png'),
             fit: BoxFit.cover,
           ),
         ),
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: _favorites.length,
-          itemBuilder: (context, index) {
-            final Libro book = _favorites[index];
-            return BookCard(
-              id: book.id,
-              imageUrl: book.imagen,
-              title: book.titulo,
-              categoria: 0,
-              isBookshelf: false,
-            );
-          },
+        child: ListView(
+          children: [
+            Container(
+              height: 200.0,
+              child: Wrap(
+                children: _favorites.chunked(3).map((chunk) {
+                  return Container(
+                    height: 200.0,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: chunk.length,
+                      itemBuilder: (context, index) {
+                        final Libro book = chunk[index];
+                        return BookCard(
+                          id: book.id,
+                          imageUrl: book.imagen,
+                          title: book.titulo,
+                          categoria: 0,
+                          isBookshelf: false,
+                        );
+                      },
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
         ),
       ),
     );
+  }
+}
+
+extension ListChunkExtension<T> on List<T> {
+  List<List<T>> chunked(int chunkSize) {
+    final List<List<T>> chunks = [];
+    for (var i = 0; i < length; i += chunkSize) {
+      final end = (i + chunkSize < length) ? i + chunkSize : this.length;
+      chunks.add(this.sublist(i, end));
+    }
+    return chunks;
   }
 }

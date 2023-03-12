@@ -25,8 +25,9 @@ class BookCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) =>
-                isBookshelf ? FavoritePage(categoria: categoria) : BookDetailPage(id: id),
+            builder: (context) => isBookshelf
+                ? FavoritePage(categoria: categoria)
+                : BookDetailPage(id: id),
           ),
         );
       },
