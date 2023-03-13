@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../main.dart';
-import 'HomePage.dart';
 import 'widgets/ButtonLogIn.dart';
 
 class LogInPage extends StatefulWidget {
@@ -90,8 +89,8 @@ class _LogInPageState extends State<LogInPage> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0))),
                   /*onSubmitted: (value) {
-                      user = value;
-                    }*/
+                        user = value;
+                      }*/
                 ),
 
                 const SizedBox(
@@ -125,8 +124,8 @@ class _LogInPageState extends State<LogInPage> {
                         borderRadius: BorderRadius.circular(20.0),
                       )),
                   /*onSubmitted: (value) {
-                     password = value;
-                    }*/
+                       password = value;
+                      }*/
                 ),
                 const SizedBox(
                   height: 40.0,

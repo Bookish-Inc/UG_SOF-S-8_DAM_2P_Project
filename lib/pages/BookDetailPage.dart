@@ -18,8 +18,10 @@ class BookDetailPage extends StatefulWidget {
 }
 
 class _BookDetailPageState extends State<BookDetailPage> {
-  late Libro _book;
-  late String _categorie;
+  // late Libro _book;
+  Libro? _book;
+  String? _categorie;
+  // late String _categorie;
   late bool _isSelected;
 
   @override
@@ -44,19 +46,19 @@ class _BookDetailPageState extends State<BookDetailPage> {
 
   Future<void> _postFavorito() async {
     final FavoritosServices favsServices = FavoritosServices();
-    await favsServices.postFavoritosToJson(_book.id);
+    await favsServices.postFavoritosToJson(_book!.id);
   }
 
   Future<void> _deleteFavorito() async {
     final FavoritosServices favsServices = FavoritosServices();
-    await favsServices.deleteFavoritosFromJson(_book.id);
+    await favsServices.deleteFavoritosFromJson(_book!.id);
   }
 
   Future<void> _loadFavorito() async {
     final FavoritosServices favsServices = FavoritosServices();
     final List<UsuarioFavoritos> favs =
         await favsServices.getFavoritosFromJson();
-    var isFav = favs.where((e) => e.libro_id == _book.id).toList();
+    var isFav = favs.where((e) => e.libro_id == _book!.id).toList();
     bool flag = isFav.isNotEmpty ? true : false;
 
     setState(() {
@@ -94,6 +96,13 @@ class _BookDetailPageState extends State<BookDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_book == null) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -122,7 +131,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
                   width: 150,
                   height: 250,
                   child: Image.network(
-                    _book.imagen,
+                    _book!.imagen,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -143,7 +152,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
                       child: TextField(
                         maxLines: null, // allow for unlimited lines of text
                         controller: TextEditingController(
-                          text: _book.descripcion,
+                          text: _book!.descripcion,
                         ),
                         enabled: false,
                       ),
@@ -166,7 +175,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Text(
-                                _book.fechaPublicacion,
+                                _book!.fechaPublicacion,
                                 style: const TextStyle(
                                   color: Colors.white,
                                 ),
@@ -183,7 +192,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Text(
-                                _categorie,
+                                _categorie!,
                                 style: const TextStyle(
                                   color: Colors.white,
                                 ),
@@ -205,7 +214,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Text(
-                                _book.autor,
+                                _book!.autor,
                                 style: const TextStyle(
                                   color: Colors.white,
                                 ),
@@ -222,7 +231,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Text(
-                                _book.precio.toString(),
+                                _book!.precio.toString(),
                                 style: const TextStyle(
                                   color: Colors.white,
                                 ),

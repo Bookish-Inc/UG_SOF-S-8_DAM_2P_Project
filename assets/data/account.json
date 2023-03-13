@@ -1,0 +1,52 @@
+[
+  {
+    "firstName": "Alam",
+    "lastName": "Brito",
+    "phone": "0987654321",
+    "mail": "alam.brito@ug.edu.ec",
+    "sex": "Masculino",
+    "job": "Estudiante",
+    "username": "AlamB",
+    "password": "1234"
+  },
+  {
+    "firstName": "Helen",
+    "lastName": "Bernal",
+    "phone": "0987654321",
+    "mail": "helen.bernalv@ug.edu.ec",
+    "sex": "Femenino",
+    "job": "Estudiante",
+    "username": "hele",
+    "password": "1234"
+  },
+  {
+    "firstName": "Nefi",
+    "lastName": "Reyes",
+    "phone": "0987654321",
+    "mail": "nefi.reyest@ug.edu.ec",
+    "sex": "Femenino",
+    "job": "Estudiante",
+    "username": "nefi",
+    "password": "1234"
+  },
+  {
+    "firstName": "Renán",
+    "lastName": "Pérez",
+    "phone": "0987654321",
+    "mail": "rehan.perezb@ug.edu.ec",
+    "sex": "Masculino",
+    "job": "Estudiante",
+    "username": "rena",
+    "password": "1234"
+  },
+  {
+    "firstName": "Vanessa",
+    "lastName": "Ronquillo",
+    "phone": "0987654321",
+    "mail": "vanessa.ronquillos@ug.edu.ec",
+    "sex": "Femenino",
+    "job": "Estudiante",
+    "username": "vane",
+    "password": "1234"
+  }
+]
