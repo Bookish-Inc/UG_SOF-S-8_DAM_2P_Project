@@ -8,6 +8,9 @@ class FavoritosServices {
     final directory = await getApplicationDocumentsDirectory();
     final path = directory.path;
     final file = File('$path/favoritos_usuario.json');
+    if (!file.existsSync()) {
+      await file.create();
+    }
     final items = await file.readAsString();
     List<UsuarioFavoritos> favs = [];
     if (items.isNotEmpty) {
