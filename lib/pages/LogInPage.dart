@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../main.dart';
+import 'HomePage.dart';
 import 'widgets/ButtonLogIn.dart';
 
 class LogInPage extends StatefulWidget {
@@ -141,6 +143,11 @@ class _LogInPageState extends State<LogInPage> {
                       onPressed: () {
                         print(
                             'El usuario es ${user.text} y la contraseña es ${password.text}');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyHomePage()),
+                        );
                       },
                     ),
 

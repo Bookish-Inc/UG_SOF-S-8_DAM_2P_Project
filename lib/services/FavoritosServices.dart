@@ -7,6 +7,9 @@ class FavoritosServices {
   Future<List<UsuarioFavoritos>> getFavoritosFromJson() async {
     final directory = await getApplicationDocumentsDirectory();
     final path = directory.path;
+    if (!(await Directory(path).exists())) {
+      await Directory(path).create(recursive: true);
+    }
     final file = File('$path/favoritos_usuario.json');
     final items = await file.readAsString();
     List<UsuarioFavoritos> favs = [];
