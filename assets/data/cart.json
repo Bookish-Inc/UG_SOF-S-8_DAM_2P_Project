@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "id_libro": 1,
+    "cantidad": 2
+  },
+  {
+    "id": 2,
+    "id_libro": 2,
+    "cantidad": 1
+  }
+]

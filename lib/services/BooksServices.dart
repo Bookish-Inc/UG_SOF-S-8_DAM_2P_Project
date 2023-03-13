@@ -7,7 +7,7 @@ import '../models/categorias.dart';
 class BookServices {
   Future<List<Libro>> getBooksFromJson() async {
     final String jsonString =
-        await rootBundle.loadString('assets/data/libros.json');
+    await rootBundle.loadString('assets/data/libros.json');
     final items = jsonDecode(jsonString);
     // final items = document.findAllElements('libros');
 
@@ -30,9 +30,35 @@ class BookServices {
     return books;
   }
 
+  Future<Libro?> getLibro(int id) async {
+    final String jsonString =
+    await rootBundle.loadString('assets/data/libros.json');
+    final items = jsonDecode(jsonString);
+    // final items = document.findAllElements('libros');
+
+    for (var node in items) {
+      if (node["id"] != id) {
+        continue;
+      }
+       return Libro(
+        id: node["id"],
+        titulo: node["titulo"],
+        imagen: node["imagen"],
+        descripcion: node["descripcion"],
+        precio: node["precio"],
+        autor: node["autor"],
+        numPaginas: node["numPaginas"],
+        fechaPublicacion: node["fechaPublicacion"],
+        cantidad: node["cantidad"],
+        estado: node["estado"] == 'true',
+      );
+    }
+    return null;
+  }
+
   Future<List<Categorias>> getCategoriesFromJson() async {
     final String jsonString =
-        await rootBundle.loadString('assets/data/categorias.json');
+    await rootBundle.loadString('assets/data/categorias.json');
     final items = jsonDecode(jsonString);
     // final items = document.findAllElements('libros');
 
@@ -51,7 +77,7 @@ class BookServices {
 
   Future<List<CategoriasLibros>> getBookCategorieFromJson() async {
     final String jsonString =
-        await rootBundle.loadString('assets/data/categorias_libros.json');
+    await rootBundle.loadString('assets/data/categorias_libros.json');
     final items = jsonDecode(jsonString);
     // final items = document.findAllElements('libros');
 
