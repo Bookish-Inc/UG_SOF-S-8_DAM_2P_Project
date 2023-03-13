@@ -5,6 +5,7 @@ import 'package:proyecto_segundo_parcial_dam/pages/CartPage.dart';
 import 'package:proyecto_segundo_parcial_dam/pages/FavoritePage.dart';
 import 'package:proyecto_segundo_parcial_dam/pages/HomePage.dart';
 import 'package:proyecto_segundo_parcial_dam/pages/LogInPage.dart';
+import 'package:proyecto_segundo_parcial_dam/pages/ListaSugerenciasPages.dart';
 import 'package:proyecto_segundo_parcial_dam/pages/SuggestPage.dart';
 
 void main() {
